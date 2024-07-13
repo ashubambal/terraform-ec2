@@ -20,8 +20,8 @@ variable "region" {
 variable "server_name" {
   description = "name of the server that we are going to deploy"
   type        = list(string)
-#   default     = ["web-testing", "web-production","dev"]
-  default     = ["web-testing", "web-dev","web-production"]
+  #   default     = ["web-testing", "web-production","dev"]
+  default = ["web-testing", "web-dev", "web-production"]
 
 }
 
