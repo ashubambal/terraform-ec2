@@ -16,7 +16,7 @@
 
 resource "aws_instance" "web" {
   # meta -agruments
-  count = 3
+  count = length(var.server_name)
   # ami             = data.aws_ami.ubuntu.id
   # ami             = var.ami_id[var.region]
   # ami             = lookup(var.ami_id, var.region, "ami-0ad21ae1d0696ad58")
@@ -26,6 +26,6 @@ resource "aws_instance" "web" {
   security_groups = [aws_security_group.sg-web.name]
 
   tags = {
-    Name = var.tags
+    Name = var.server_name[count.index]
   }
 }
