@@ -11,12 +11,11 @@ variable "tags" {
 variable "region" {
   description = "AWS region name"
   type        = string
-  default     = "us-east-1"
 }
 
 variable "ami_id" {
   description = "AWS machine AMI"
-  type        = map(any)
+  type = map
   default = {
     "us-east-1" = "ami-0a0e5d9c7acc336f1"
     "us-west-1" = "ami-0ff591da048329e00"
