@@ -19,7 +19,7 @@ resource "aws_instance" "web" {
   # ami             = var.ami_id[var.region]
   # ami             = lookup(var.ami_id, var.region, "ami-0ad21ae1d0696ad58")
   ami             = try(var.ami_id[var.region], "ami-0ad21ae1d0696ad58")
-  instance_type   = var.instance_type
+  instance_type   = var.environment == "test" ? "t2.micro" : "t2.medium"
   key_name        = aws_key_pair.deployer.id
   security_groups = [aws_security_group.sg-web.name]
 

@@ -11,6 +11,20 @@ variable "tags" {
 variable "region" {
   description = "AWS region name"
   type        = string
+  validation {
+    condition     = contains(["us-east-1", "us-west-1"], var.region)
+    error_message = "Not going to support this region"
+  }
+}
+
+variable "environment" {
+  description = "Environment Name"
+  type        = string
+  default     = "test"
+  validation {
+    condition     = contains(["test", "prod"], var.environment)
+    error_message = "Not goinig to support this environment"
+  }
 }
 
 variable "ami_id" {
