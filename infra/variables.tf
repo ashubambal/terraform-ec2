@@ -45,6 +45,25 @@ variable "key_path" {
   }
 }
 
+variable "script" {
+  description = "nginx installation script"
+  type        = string
+  validation {
+    condition     = fileexists(var.script)
+    error_message = "file not found"
+  }
+}
+
+
+variable "private_key" {
+  description = "Your private_key SSH Key path"
+  type        = string
+  validation {
+    condition     = fileexists(var.private_key)
+    error_message = "private key not found"
+  }
+}
+
 variable "ports" {
   description = "List of ports objects"
   type        = any

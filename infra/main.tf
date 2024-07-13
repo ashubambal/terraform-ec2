@@ -30,4 +30,21 @@ resource "aws_instance" "web" {
   tags = {
     Name = each.key
   }
+  user_data = file(var.script)
+
+  connection {
+    user        = "ubuntu"
+    type        = "ssh"
+    private_key = file(var.private_key)
+    host        = self.public_ip
+  }
+
+  provisioner "remote-exec" {
+    script = var.script
+  }
+
+  provisioner "file" {
+    source      = "./ecommerce-website-html-css/"
+    destination = "/var/www/html/"
+  }
 }

@@ -15,7 +15,7 @@ ports = [
   {
     from_port   = 80
     to_port     = 90
-    cidr_blocks = ["192.168.1.0/24"]
+    cidr_blocks = ["0.0.0.0/0"]
   },
   {
     from_port   = 443
@@ -23,3 +23,5 @@ ports = [
     cidr_blocks = ["192.168.2.0/24"]
   }
 ]
+script      = "./deploy.sh"
+private_key = "./id_rsa"
