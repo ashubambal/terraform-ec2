@@ -17,7 +17,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
-  security_groups = [ "aws_security_group.allow_tls.id" ]
+  security_groups = [aws_security_group.allow_tls.id]
 
   tags = {
     Name = "Ubuntu-Server"
