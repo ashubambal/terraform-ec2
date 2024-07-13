@@ -15,6 +15,8 @@
 # }
 
 resource "aws_instance" "web" {
+  # meta -agruments
+  count = 3
   # ami             = data.aws_ami.ubuntu.id
   # ami             = var.ami_id[var.region]
   # ami             = lookup(var.ami_id, var.region, "ami-0ad21ae1d0696ad58")
