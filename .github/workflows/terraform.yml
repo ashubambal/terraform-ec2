@@ -51,7 +51,7 @@ jobs:
         # Destroy the terraform configuration  
         - name: Terraform Destroy
           id: Destroy
-          run: terraform Destroy -auto-approve
+          run: terraform destroy -auto-approve
           
 
         
