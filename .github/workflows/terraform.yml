@@ -35,12 +35,12 @@ jobs:
 
         - name: Terraform plan
           id: plan
-          run: terraform plan -no-color -var="instance_type=t2.medium"
+          run: terraform plan -var="instance_type=t2.medium"
           continue-on-error: true
 
         - name: Terraform Apply
           id: Apply
-          run: terraform apply -auto-approve
+          run: terraform apply -auto-approve -var="instance_type=t2.medium"
           
 
         
