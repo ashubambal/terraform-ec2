@@ -20,6 +20,6 @@ resource "aws_instance" "web" {
   # security_groups = [aws_security_group.allow_tls.id]
 
   tags = {
-    Name = "Ubuntu-Server"
+    Name = var.tags
   }
 }
