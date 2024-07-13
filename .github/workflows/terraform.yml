@@ -21,23 +21,29 @@ jobs:
         
         # Initialize a new or existing Terraform working diirectory by creating initial files, loading any remote state, downloading moduls etc.
         - uses: hashicorp/setup-terraform@v3
+        
+        # Initialize Terraform
         - name: Terraform Init
           id: init
           run: terraform init
 
+        # Check Terraform Format
         - name: Terraform Fmt
           id: fmt
           run: terraform fmt -check
 
+        # Validate Terraform Configuration file  
         - name: Terraform Validate
           id: validate
           run: terraform validate -no-color
 
+        # Generate and show terraform plan  
         - name: Terraform plan
           id: plan
           run: terraform plan -var="instance_type=t2.medium"
           continue-on-error: true
 
+        # Apply the terraform configuration  
         - name: Terraform Apply
           id: Apply
           run: terraform apply -auto-approve -var="instance_type=t2.medium"
