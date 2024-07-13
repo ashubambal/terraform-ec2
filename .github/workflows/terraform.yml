@@ -37,7 +37,7 @@ jobs:
           id: validate
           run: terraform validate
 
-        # Generate and show terraform plan  
+        # Generate and show terraform plan1
         - name: Terraform plan
           id: plan
           run: terraform plan
