@@ -1,3 +1,3 @@
 instance_type = "t2.micro"
 tags          = "ubuntu-machine"
-region        = "us-west-2"
+region        = "ap-southeast-1"
