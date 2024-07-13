@@ -35,7 +35,7 @@ jobs:
 
         - name: Terraform plan
           id: plan
-          run: terraform plan -no-color
+          run: terraform plan -no-color -var="instance_type=t2.medium"
           continue-on-error: true
           
 
