@@ -50,10 +50,10 @@ jobs:
           id: Apply
           run: terraform apply -auto-approve
 
-        # Destroy the terraform configuration  
-        - name: Terraform Destroy
-          id: Destroy
-          run: terraform destroy -auto-approve
+        # # Destroy the terraform configuration  
+        # - name: Terraform Destroy
+        #   id: Destroy
+        #   run: terraform destroy -auto-approve
           
 
         
