@@ -8,15 +8,6 @@ variable "server_name" {
   type        = list(string)
 }
 
-variable "environment" {
-  description = "Environment Name"
-  type        = string
-  validation {
-    condition     = contains(["test", "prod"], var.environment)
-    error_message = "Not goinig to support this environment"
-  }
-}
-
 variable "key_path" {
   description = "Your public SSH Key path"
   type        = string

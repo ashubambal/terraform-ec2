@@ -14,6 +14,9 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical1
 }
 
+locals {
+  environment = terraform.workspace
+}
 resource "aws_instance" "web" {
   # meta -agruments
   # count = length(var.server_name)
@@ -23,7 +26,7 @@ resource "aws_instance" "web" {
   # ami             = var.ami_id[var.region]
   # ami             = lookup(var.ami_id, var.region, "ami-0ad21ae1d0696ad58")
   ami             = data.aws_ami.ubuntu.id
-  instance_type   = var.environment == "test" ? "t2.micro" : "t2.medium"
+  instance_type   = local.environment == "test" ? "t2.micro" : "t2.medium"
   key_name        = aws_key_pair.deployer.id
   security_groups = [aws_security_group.sg-web.name]
 
