@@ -44,7 +44,7 @@ resource "aws_instance" "web" {
   }
 
   provisioner "file" {
-    source      = "../src/"
+    source      = "./src/"
     destination = "/var/www/html/"
   }
 }
