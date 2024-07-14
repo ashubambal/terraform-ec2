@@ -1,4 +1,4 @@
-region      = "us-west-1"
+region      = "us-east-1"
 server_name = ["web-testing", "web-prod"]
 environment = "test"
 key_path    = "cred/id_rsa.pub"
