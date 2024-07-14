@@ -13,8 +13,8 @@ on:
 
   push:
     branches:
-      - main
       - stage
+      - main
 
 jobs:
     terraform:
