@@ -1,4 +1,4 @@
-region      = "us-east-1"
+region      = "us-west-1"
 server_name = ["web-testing", "web-prod"]
 environment = "test"
 key_path    = "cred/id_rsa.pub"
@@ -21,5 +21,3 @@ ports = [
 ]
 script      = "./deploy.sh"
 private_key = "cred/id_rsa"
-
-#
