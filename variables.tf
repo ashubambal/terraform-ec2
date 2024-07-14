@@ -1,21 +1,6 @@
-# variable "instance_type" {
-#   description = "Specify the instance type"
-#   type        = string
-# }
-
-# variable "tags" {
-#   description = "Provide the tagging to AWS machine"
-#   type        = string
-# }
-#
-
 variable "region" {
   description = "AWS region name"
   type        = string
-  validation {
-    condition     = contains(["us-east-1", "us-west-1"], var.region)
-    error_message = "Not going to support this region"
-  }
 }
 
 variable "server_name" {
