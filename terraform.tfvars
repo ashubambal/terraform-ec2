@@ -5,7 +5,7 @@ ami_id = {
   "us-west-1" = "ami-0ff591da048329e00"
 }
 environment = "test"
-key_path    = "./cred/id_rsa.pub"
+key_path    = "/cred/id_rsa.pub"
 ports = [
   {
     from_port   = 22
@@ -24,6 +24,6 @@ ports = [
   }
 ]
 script      = "./deploy.sh"
-private_key = "./cred/id_rsa"
+private_key = "/cred/id_rsa"
 
 #
