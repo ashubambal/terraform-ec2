@@ -1,10 +1,20 @@
-name: 'teraform'
+name: 'terraform'
 
-on: 
-    push:
-        branches:
-          - main
-          - stage
+on:
+  workflow_dispatch:
+    inputs:
+      terraform_action:
+        type: choice
+        description: Select Terraform action
+        options:
+          - apply
+          - destroy
+        required: true
+
+  push:
+    branches:
+      - main
+      - stage
 
 jobs:
     terraform:
@@ -47,16 +57,14 @@ jobs:
 
         # Apply the terraform configuration  
         - name: Terraform Apply
+          if: ${{ github.event.inputs.terraform_action == 'apply' }}
           id: Apply
-          run: terraform apply -auto-approve
+          run: terraform ${{ github.event.inputs.terraform_action}} -auto-approve
 
-        # # Destroy the terraform configuration  
-        # - name: Terraform Destroy
-        #   id: Destroy
-        #   run: terraform destroy -auto-approve
-          
-
-        
-
+        # Destroy the terraform configuration  
+        - name: Terraform Destroy
+          if: ${{ github.event.inputs.terraform_action == 'destroy' }}
+          id: Destroy
+          run: terraform ${{ github.event.inputs.terraform_action}} -auto-approve
 
 
