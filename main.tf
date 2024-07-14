@@ -44,7 +44,7 @@ resource "aws_instance" "web" {
   }
 
   provisioner "file" {
-    source      = "./ecommerce-website-html-css/"
+    source      = "../ecommerce-website-html-css/"
     destination = "/var/www/html/"
   }
 }
