@@ -12,9 +12,7 @@ on:
         required: true
 
   push:
-    branches:
-      - stage
-      - main
+    branches: [ "stage" ]
 
 jobs:
     terraform:
