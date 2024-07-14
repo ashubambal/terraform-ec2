@@ -45,15 +45,15 @@ jobs:
           run: terraform plan
           continue-on-error: true
 
-        # # Apply the terraform configuration  
-        # - name: Terraform Apply
-        #   id: Apply
-        #   run: terraform apply -auto-approve
+        # Apply the terraform configuration  
+        - name: Terraform Apply
+          id: Apply
+          run: terraform apply -auto-approve
 
-        # Destroy the terraform configuration  
-        - name: Terraform Destroy
-          id: Destroy
-          run: terraform destroy -auto-approve
+        # # Destroy the terraform configuration  
+        # - name: Terraform Destroy
+        #   id: Destroy
+        #   run: terraform destroy -auto-approve
           
 
         
