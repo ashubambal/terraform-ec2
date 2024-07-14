@@ -1,18 +1,18 @@
-# data "aws_ami" "ubuntu" {
-#   most_recent = true
-#
-#   filter {
-#     name   = "name"
-#     values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
-#   }
+data "aws_ami" "ubuntu" {
+  most_recent = true
 
-#   filter {
-#     name   = "virtualization-type"
-#     values = ["hvm"]
-#   }
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
 
-#   owners = ["099720109477"] # Canonical1
-# }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["099720109477"] # Canonical1
+}
 
 resource "aws_instance" "web" {
   # meta -agruments
@@ -22,7 +22,7 @@ resource "aws_instance" "web" {
   # ami             = data.aws_ami.ubuntu.id
   # ami             = var.ami_id[var.region]
   # ami             = lookup(var.ami_id, var.region, "ami-0ad21ae1d0696ad58")
-  ami             = try(var.ami_id[var.region], "ami-0ad21ae1d0696ad58")
+  ami             = data.aws_ami.ubuntu.id
   instance_type   = var.environment == "test" ? "t2.micro" : "t2.medium"
   key_name        = aws_key_pair.deployer.id
   security_groups = [aws_security_group.sg-web.name]
@@ -44,7 +44,7 @@ resource "aws_instance" "web" {
   }
 
   provisioner "file" {
-    source      = "./src/"
-    destination = "/var/www/html/"
+    source      = var.project_source
+    destination = var.project_destination
   }
 }

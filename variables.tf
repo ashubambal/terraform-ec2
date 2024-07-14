@@ -31,11 +31,6 @@ variable "environment" {
   }
 }
 
-variable "ami_id" {
-  description = "AWS machine AMI"
-  type        = map(any)
-}
-
 variable "key_path" {
   description = "Your public SSH Key path"
   type        = string
@@ -67,4 +62,16 @@ variable "private_key" {
 variable "ports" {
   description = "List of ports objects"
   type        = any
+}
+
+variable "project_source" {
+  description = "Enter your project folder path"
+  type        = string
+  default     = "../src/"
+}
+
+variable "project_destination" {
+  description = "Enter your project destination folder path"
+  type        = string
+  default     = "/var/www/html/"
 }

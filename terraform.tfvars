@@ -1,9 +1,5 @@
 region      = "us-east-1"
 server_name = ["web-testing", "web-prod"]
-ami_id = {
-  "us-east-1" = "ami-0a0e5d9c7acc336f1"
-  "us-west-1" = "ami-0ff591da048329e00"
-}
 environment = "test"
 key_path    = "cred/id_rsa.pub"
 ports = [
