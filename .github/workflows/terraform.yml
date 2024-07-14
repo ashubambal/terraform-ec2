@@ -2,7 +2,9 @@ name: 'teraform'
 
 on: 
     push:
-        branches: ['stage']
+        branches:
+          - main
+          - stage
 
 jobs:
     terraform:
