@@ -19,5 +19,7 @@ ports = [
     cidr_blocks = ["192.168.2.0/24"]
   }
 ]
-script      = "./deploy.sh"
-private_key = "cred/id_rsa"
+script              = "./deploy.sh"
+private_key         = "cred/id_rsa"
+project_source      = "../src/"
+project_destination = "/var/www/html/"

@@ -67,11 +67,9 @@ variable "ports" {
 variable "project_source" {
   description = "Enter your project folder path"
   type        = string
-  default     = "../src/"
 }
 
 variable "project_destination" {
   description = "Enter your project destination folder path"
   type        = string
-  default     = "/var/www/html/"
 }
