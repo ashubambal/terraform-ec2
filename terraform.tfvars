@@ -1,6 +1,5 @@
-region      = "us-east-1"
-server_name = ["web-testing", "web-prod"]
-key_path    = "cred/id_rsa.pub"
+region   = "us-east-1"
+key_path = "cred/id_rsa.pub"
 ports = [
   {
     from_port   = 22
@@ -22,3 +21,4 @@ script              = "./deploy.sh"
 private_key         = "cred/id_rsa"
 project_source      = "./src/"
 project_destination = "/var/www/html/"
+environment         = "test"

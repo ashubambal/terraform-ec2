@@ -1,13 +1,3 @@
-variable "region" {
-  description = "AWS region name"
-  type        = string
-}
-
-variable "server_name" {
-  description = "name of the server that we are going to deploy"
-  type        = list(string)
-}
-
 variable "key_path" {
   description = "Your public SSH Key path"
   type        = string
@@ -25,7 +15,6 @@ variable "script" {
     error_message = "file not found"
   }
 }
-
 
 variable "private_key" {
   description = "Your private_key SSH Key path"
@@ -49,4 +38,16 @@ variable "project_source" {
 variable "project_destination" {
   description = "Enter your project destination folder path"
   type        = string
+}
+
+variable "environment" {
+  description = "Environment Name"
+  type = string
+
+}
+
+variable "instance_type" {
+  description = "instance type"
+  type = string
+  default = "t2.micro"
 }

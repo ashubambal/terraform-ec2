@@ -1,3 +1,3 @@
-output "public_IP" {
-  value = [for key, value in aws_instance.web : value.public_ip]
+output "name" {
+  value = module.my-ecom1.public_IP
 }
