@@ -7,6 +7,7 @@
 #   description = "Provide the tagging to AWS machine"
 #   type        = string
 # }
+#
 
 variable "region" {
   description = "AWS region name"
