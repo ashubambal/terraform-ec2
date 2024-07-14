@@ -1,3 +1,3 @@
-# output "public_IP" {
-#   value = aws_instance.web.private_ip
-# }
+output "public_IP" {
+  value = [for key,value in aws_instance.web : value.public_IP]
+}
