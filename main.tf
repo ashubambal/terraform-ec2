@@ -30,7 +30,7 @@ resource "aws_instance" "web" {
   tags = {
     Name = each.key
   }
-  user_data = file(var.script)
+  # user_data = file(var.script)
 
   connection {
     user        = "ubuntu"
